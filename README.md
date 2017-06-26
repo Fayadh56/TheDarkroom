@@ -4,6 +4,10 @@ Android Application to keep Track of Film Developing Times.
 
 Currently a Work In Progress. 
 
+Contributors: 
+- Fayadh Ahmed
+- Gautham Padamakumar
+
 Initial Project Goals:
 - Support C41/E6.
 - Fuck the Vue webapp. 
