@@ -18,5 +18,6 @@ Timeline:
 
 Design Mockups
 
-Version 0.01
 <img style="width:200px;" src=images/mockup.PNG/>
+
+# Version 0.01
