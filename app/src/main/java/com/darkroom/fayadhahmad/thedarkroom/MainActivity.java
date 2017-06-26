@@ -1,11 +1,14 @@
 package com.darkroom.fayadhahmad.thedarkroom;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -13,48 +16,77 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    public Film currentFilm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public Film currentFilm;
+        Button startColorButton = (Button) findViewById(R.id.startColorButton);
+        Button startSlideButton = (Button) findViewById(R.id.startSlideButton);
+        Button startBwButton = (Button) findViewById(R.id.startBwButton);
 
-    public void initiateC41(View view) {
-        CheckBox stopBox = (CheckBox)findViewById(( R.id.checkBox));
-        CheckBox stopBox2 = (CheckBox)findViewById(( R.id.checkBox2));
+        final Intent intent = new Intent(MainActivity.this, DarkRoomActivity.class);
 
-        if (stopBox.isChecked()) {
-            currentFilm = initiateC41(1);
-        } else if (stopBox2.isChecked()) {
-            currentFilm = initiateC41(2);
-        } else {
-            currentFilm = initiateC41(0);
-        }
+        startColorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
-        final TextView countdown = (TextView)findViewById(R.id.textView4);
+        startSlideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
-        double times[] = currentFilm.getDevelopTimes();
-
-        countdown.setText("00:00");
-
-
-            long t = (long)(times[0] * 60 * 1000);
-            new CountDownTimer(t, 1000) {
-
-                @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-                public void onTick(long millisUntilFinished) {
-                    countdown.setText(hmsTimeFormatter(millisUntilFinished));
-                }
-
-                public void onFinish() {
-                    countdown.setText("Done!");
-                }
-            }.start();
-
+        startBwButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
     }
+
+
+//    public void initiateC41(View view) {
+//        CheckBox stopBox = (CheckBox)findViewById(( R.id.checkBox));
+//        CheckBox stopBox2 = (CheckBox)findViewById(( R.id.checkBox2));
+//
+//        if (stopBox.isChecked()) {
+//            currentFilm = initiateC41(1);
+//        } else if (stopBox2.isChecked()) {
+//            currentFilm = initiateC41(2);
+//        } else {
+//            currentFilm = initiateC41(0);
+//        }
+//
+//        final TextView countdown = (TextView)findViewById(R.id.textView4);
+//
+//        double times[] = currentFilm.getDevelopTimes();
+//
+//        countdown.setText("00:00");
+//
+//
+//            long t = (long)(times[0] * 60 * 1000);
+//            new CountDownTimer(t, 1000) {
+//
+//                @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+//                public void onTick(long millisUntilFinished) {
+//                    countdown.setText(hmsTimeFormatter(millisUntilFinished));
+//                }
+//
+//                public void onFinish() {
+//                    countdown.setText("Done!");
+//                }
+//            }.start();
+//
+//    }
 
     /**
      * Converts millisecond to Minutes, Seconds for the Countdown, formats to String.
@@ -65,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private String hmsTimeFormatter(long milliSeconds) {
 
-        String hms = String.format("%02d:%02d",
+        @SuppressLint("DefaultLocale") String hms = String.format("%02d:%02d",
                 TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
                 TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
 
