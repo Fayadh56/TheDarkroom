@@ -1,6 +1,8 @@
 package com.darkroom.fayadhahmad.thedarkroom;
 
+import android.os.Build;
 import android.os.CountDownTimer;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,20 +37,40 @@ public class MainActivity extends AppCompatActivity {
 
         double times[] = currentFilm.getDevelopTimes();
 
-        countdown.setText("Hello this works");
+        countdown.setText("00:00");
 
-        long t = (long) ( 100 * times[0] * 60 );
 
-        new CountDownTimer(350000, 1000) {
+            long t = (long)(times[0] * 60 * 1000);
+            new CountDownTimer(t, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-                countdown.setText("Remaining: " + millisUntilFinished / 1000);
-            }
+                @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+                public void onTick(long millisUntilFinished) {
+                    countdown.setText(hmsTimeFormatter(millisUntilFinished));
+                }
 
-            public void onFinish() {
-                countdown.setText("Done!");
-            }
-        }.start();
+                public void onFinish() {
+                    countdown.setText("Done!");
+                }
+            }.start();
+
+
+    }
+
+    /**
+     * Converts millisecond to Minutes, Seconds for the Countdown, formats to String.
+     *
+     * @param milliSeconds
+     * @return HH:mm:ss time formatted string
+     */
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+    private String hmsTimeFormatter(long milliSeconds) {
+
+        String hms = String.format("%02d:%02d",
+                TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
+                TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
+
+        return hms;
+
 
     }
 
