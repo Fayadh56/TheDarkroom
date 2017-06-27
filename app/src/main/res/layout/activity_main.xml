@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1">
-
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -27,8 +27,8 @@
         android:id="@+id/colorLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.33"
-        android:background="@drawable/color">
+        android:layout_weight="0.31"
+        android:background="@drawable/lemon_twist">
 
         <Button
             android:id="@+id/startColorButton"
@@ -50,7 +50,7 @@
             android:layout_marginBottom="12dp"
             android:fontFamily="opensans-light"
             android:text="@string/color"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="24sp" />
 
     </RelativeLayout>
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.32"
-        android:background="@drawable/slide">
+        android:background="@drawable/nimvelo">
 
         <Button
             android:id="@+id/startSlideButton"
@@ -91,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.32"
-        android:background="@drawable/black_white">
+        android:background="@drawable/emerald_water">
 
         <Button
             android:id="@+id/startBwButton"
