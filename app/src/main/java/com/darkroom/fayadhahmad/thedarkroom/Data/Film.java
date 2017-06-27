@@ -1,4 +1,4 @@
-package com.darkroom.fayadhahmad.thedarkroom;
+package com.darkroom.fayadhahmad.thedarkroom.Data;
 
 
 
@@ -17,7 +17,7 @@ public class Film {
 
     private boolean pushed;
 
-    Film(String name, int index, String developers[], double developTimes[], double agitationTimes,
+    public Film(String name, int index, String developers[], double developTimes[], double agitationTimes,
          int noOfInversions, double temperature) {
         this.name = name;
         this.index = index;

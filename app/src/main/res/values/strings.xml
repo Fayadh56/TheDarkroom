@@ -2,4 +2,7 @@
     <string name="app_name">The Darkroom</string>
     <string name="start">Start</string>
     <string name="color">Color</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
