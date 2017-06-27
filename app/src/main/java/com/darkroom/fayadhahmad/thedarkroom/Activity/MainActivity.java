@@ -28,14 +28,12 @@ public class MainActivity extends AppCompatActivity {
         Button startSlideButton = (Button) findViewById(R.id.startSlideButton);
         Button startBwButton = (Button) findViewById(R.id.startBwButton);
 
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         final Intent intent = new Intent(MainActivity.this, DarkRoomActivity.class);
 
         startColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
                 intent.putExtra("KEY", "COLOR");
                 startActivity(intent);
             }
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         startSlideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
                 intent.putExtra("KEY", "SLIDE");
                 startActivity(intent);
             }
@@ -53,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         startBwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
                 intent.putExtra("KEY", "BW");
                 startActivity(intent);
             }

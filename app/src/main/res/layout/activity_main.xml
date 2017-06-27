@@ -50,15 +50,6 @@
             android:textSize="24sp"
             android:id="@+id/textView2" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView2"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_below="@+id/startColorButton" />
-
     </RelativeLayout>
 
     <RelativeLayout

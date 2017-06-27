@@ -31,7 +31,6 @@ public class BWFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ProgressBar progressBar = view.findViewById(R.id.progressBar);
         super.onViewCreated(view, savedInstanceState);
     }
 }
