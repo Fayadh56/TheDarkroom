@@ -18,7 +18,7 @@ Long Term Goals:
 
 Timeline:
 
-- Google Playstore offering Mid-July
+
 
 Design Mockups
 
